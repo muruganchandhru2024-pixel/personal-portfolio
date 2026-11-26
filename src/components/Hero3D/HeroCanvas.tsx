@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Canvas } from "@react-three/fiber";
-import { DigitalSculpture } from "./DigitalSculpture";
 import { motion, AnimatePresence } from "framer-motion";
 import { Box, User, Activity } from "lucide-react";
+import { DigitalSculptureThree } from "./DigitalSculptureThree";
 
 export const HeroCanvas: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -18,7 +17,9 @@ export const HeroCanvas: React.FC = () => {
     // Check WebGL availability
     try {
       const canvas = document.createElement("canvas");
-      const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+      const gl =
+        canvas.getContext("webgl") ||
+        canvas.getContext("experimental-webgl");
       if (!gl) {
         setHasWebGL(false);
       }
@@ -86,25 +87,16 @@ export const HeroCanvas: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.4 }}
-            className="w-full h-full min-h-[420px] lg:min-h-[540px] flex items-center justify-center cursor-grab active:cursor-grabbing"
+            className="w-full h-full min-h-[420px] lg:min-h-[540px] flex items-center justify-center cursor-grab active:cursor-grabbing relative"
           >
-            <Canvas
-              camera={{ position: [0, 0, 7.2], fov: 45 }}
-              dpr={[1, 2]}
-              gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-              style={{ width: "100%", height: "100%" }}
-            >
-              <Suspense fallback={null}>
-                <DigitalSculpture mousePos={mousePos} />
-              </Suspense>
-            </Canvas>
+            <DigitalSculptureThree mousePos={mousePos} />
 
             {/* Subtitle Telemetry overlay */}
             <div className="absolute bottom-3 left-4 sm:left-8 z-10 flex items-center gap-2 font-mono text-[11px] text-brand-cyan/70 bg-[#050508]/60 px-3 py-1.5 rounded-md border border-brand-cyan/20 backdrop-blur-sm pointer-events-none">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse" />
-              <span>CORE_ENGINE: THREE.JS R3F</span>
+              <span>CORE_ENGINE: THREE.JS WEBGL</span>
               <span className="text-white/20">|</span>
-              <span className="text-slate-400">FPS: ~60</span>
+              <span className="text-slate-400">FPS: 60</span>
             </div>
           </motion.div>
         ) : (

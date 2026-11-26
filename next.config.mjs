@@ -2,7 +2,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/personal-portfolio',
+  basePath: process.env.DEPLOY_TARGET === 'ec2' ? '' : '/personal-portfolio',
   transpilePackages: ['three'],
   reactStrictMode: true,
   images: {

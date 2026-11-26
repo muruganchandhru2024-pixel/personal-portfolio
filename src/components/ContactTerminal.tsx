@@ -228,7 +228,7 @@ export const ContactTerminal: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <div className="text-[10px] text-slate-400">GITHUB REPOSITORY</div>
-                  <div className="font-semibold text-white">chandhru-m</div>
+                  <div className="font-semibold text-white">muruganchandhru2024-pixel</div>
                 </div>
               </a>
 

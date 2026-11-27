@@ -124,3 +124,22 @@ npm run build
 ## 📄 License
 
 This project is personal and open-source under the MIT License.
+---
+
+## ☁️ AWS Cloud Deployment
+
+- Cloud Provider: Amazon Web Services (AWS)
+- Hosting: Amazon EC2 (Ubuntu)
+- Containerization: Docker
+- Web Server: Nginx
+- CI/CD: GitHub Actions
+- Authentication: AWS IAM & OIDC
+- Remote Deployment: AWS Systems Manager (SSM)
+- Region: Europe (Stockholm) - eu-north-1
+
+### Live Portfolio
+
+[View Live Portfolio](http://13.61.8.239:5000)
+
+The portfolio is automatically deployed to AWS EC2
+whenever changes are pushed to the main branch.

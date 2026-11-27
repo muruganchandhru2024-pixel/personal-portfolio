@@ -73,7 +73,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
           >
             <div className="font-mono text-xs sm:text-sm text-brand-cyan tracking-widest uppercase flex items-center gap-2">
               <Terminal className="w-4 h-4 text-brand-cyan" />
-              <span>HELLO, WORLD.</span>
+              <span>HELLO,CLOUD WORLD.</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold font-heading tracking-tight text-white leading-none">
